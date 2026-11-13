@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Corporate Apology Speedrun</title>
+  <meta name="description" content="Something terrible has happened. Write the corporate apology before the quote tweets win. Any% Notes App category.">
+  <meta property="og:title" content="Corporate Apology Speedrun">
+  <meta property="og:description" content="Write the Notes-app apology before the quote tweets win.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="og.png">
+  <meta name="theme-color" content="#f4efe6">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🙇</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="logo" id="home" aria-label="Home">Corporate Apology <b>Speedrun</b></button>
+    <div class="topbar-right"><div class="pb-chip" id="pb-chip" hidden></div><button class="mute" id="mute" aria-label="Toggle sound">🔊</button></div>
+  </header>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+  <main>
+    <!-- START -->
+    <section class="screen active" id="screen-start">
+      <p class="kicker">Any% · Notes App category</p>
+      <h1>Something terrible has happened.<br><em>Apologize. Fast.</em></h1>
+      <p class="lede">You run comms for a company that just did something unforgivable. Assemble the statement in five picks. Every second, the quote tweets multiply.</p>
+
+      <div class="modes">
+        <button class="mode mode-daily" id="btn-daily">
+          <span class="mode-tag" id="daily-tag">Daily Scandal</span>
+          <span class="mode-title">Today's crisis</span>
+          <span class="mode-sub">Same scandal for everyone. Compare times.</span>
+          <span class="mode-best" id="daily-best"></span>
+        </button>
+        <button class="mode" id="btn-random">
+          <span class="mode-tag">Random</span>
+          <span class="mode-title">Fresh disaster</span>
+          <span class="mode-sub">Endless scandals. Grind your PB.</span>
+        </button>
+      </div>
+
+      <ul class="rules">
+        <li><kbd>1</kbd>–<kbd>4</kbd> or tap to pick a line</li>
+        <li>One line per step won't get past Legal: <b>+2.5s</b> and it gets <span class="redact-demo">redacted</span></li>
+        <li>Every run has a <b>plot twist</b>. The CEO might grab the phone.</li>
+        <li>Screenshot the result. Post it. Turn off replies.</li>
+      </ul>
+    </section>
+
+    <!-- PLAY -->
+    <section class="screen" id="screen-play">
+      <div class="breaking">
+        <span class="breaking-label">Breaking</span>
+        <p id="headline"></p>
+      </div>
+
+      <div class="play-grid">
+        <div class="play-main">
+          <div class="hud">
+            <div class="timer" id="timer">0.00</div>
+            <div class="hud-meta">
+              <div class="qt"><span id="qt">0</span> quote tweets</div>
+              <div class="penalty" id="penalty"></div>
+            </div>
+          </div>
+
+          <div class="stage">
+            <div class="countdown" id="countdown"></div>
+            <p class="step-label" id="step-label"></p>
+            <div class="twist" id="twist"></div>
+            <div class="options" id="options"></div>
+          </div>
+
+          <div class="feed" id="feed" aria-live="polite"></div>
+          <ol class="splits" id="splits"></ol>
+        </div>
+
+        <aside class="note" aria-label="Draft statement">
+          <div class="note-bar"><span>‹ Notes</span><span class="note-dots">⋯</span></div>
+          <div class="note-date" id="note-date"></div>
+          <div class="note-body" id="draft"></div>
+        </aside>
+      </div>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </section>
+
+    <!-- RESULT -->
+    <section class="screen" id="screen-result">
+      <div class="result-grid">
+        <div class="shot-wrap">
+          <canvas id="shot" width="1080" height="1440" aria-label="Shareable result image"></canvas>
+        </div>
+        <div class="result-side">
+          <div class="pb-banner" id="pb-banner" hidden>New personal best</div>
+          <div class="share-buttons">
+            <button class="btn btn-primary" id="btn-post">Post on X</button>
+            <button class="btn" id="btn-share" hidden>Share image</button>
+            <button class="btn" id="btn-copy">Copy image</button>
+            <button class="btn" id="btn-download">Download</button>
+          </div>
+          <p class="hint" id="share-hint">Tip: copy the image, then paste it into your post.</p>
+          <div class="again">
+            <button class="btn btn-dark" id="btn-retry"><kbd>R</kbd> Run it back</button>
+            <button class="btn btn-dark" id="btn-new"><kbd>N</kbd> New scandal</button>
+          </div>
+          <h3>Splits</h3>
+          <p class="twist-note" id="twist-note"></p>
+          <ol class="splits result-splits" id="result-splits"></ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
