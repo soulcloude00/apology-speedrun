@@ -2,6 +2,8 @@
 
 Something terrible has happened. Write the Notes-app apology before the quote tweets win.
 
+**Play: https://apology-speedrun.pages.dev**
+
 A tiny browser game: you run comms for a (fictional) company mid-scandal. Assemble the corporate apology in five picks as fast as you can, survive a plot twist, and get a shareable screenshot of your statement, time, grade and top reply.
 
 ![Preview](og.png)
